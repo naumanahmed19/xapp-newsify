@@ -1,0 +1,142 @@
+{
+   "common": {
+     "select": "Select an item",
+     "search": "Search",
+     "clear": "Clear",
+     "errors": {
+       "network": {
+         "title": "Ouch!",
+         "description": "Something went wrong"
+       },
+       "blocks": {
+         "title": "Work in progress",
+         "description": "This screen is under development right now"
+       },
+       "settings": {
+         "title": "Unable to load settings",
+         "description": "Settings api has an issue"
+       }
+     },
+     "form": {
+       "name": {
+         "label": "Name",
+         "error1": "Enter a name",
+         "error2": "Name must be more than 2 charater"
+       },
+       "email": {
+         "label": "Email",
+         "error": "Enter Valid Email"
+       },
+       "password": {
+         "label": "Password",
+         "confirm": "Confirm password",
+         "error1": "Enter a name",
+         "error2": "Name must be more than 2 charater"
+       },
+       "confirmPassword": {
+         "label": "Re enter Password",
+         "confirm": "Confirm password",
+         "error1": "Re enter password",
+         "error2": "Confirm Password should match password"
+       }
+     }
+   },
+   "auth": {
+     "login": {
+       "title": "Login",
+       "button": "Login",
+       "forgotPassword": "Forgot Password",
+       "dontHaveAccount":" Don't have an account yet?"
+     },
+     "register": {
+       "title": "Create New Account",
+       "button": "Create Account",
+       "success": {
+         "title": "Account Registerd",
+         "description": "Your account has been register"
+       }
+     },
+     "forgot": {
+       "title": "Recover",
+       "passTitle": "Forgot Password",
+       "description": "Please enter your email and we will send \nyou a link to return to your account",
+       "button": "Send Email"
+     }
+   },
+   "home": {
+     "selectCategory": "Select a category"
+   },
+   "cart": {
+     "title": "Cart",
+     "total": "Total",
+     "button": "Next",
+     "empty": {
+       "title": "No Item Found",
+       "description": "You don't have any items in cart yet"
+     },
+     "update": {
+       "msg": "Item added in the cart"
+     },
+     "get":{
+       "error": "Failed to load cart"
+     }
+    
+   },
+   "favourite": {
+     "title": "Favourites",
+     "empty": {
+       "title": "No Favourite Item Found",
+       "description": "You don't have any items yet"
+     }
+   },
+   "account": {
+     "title": "Account",
+     "signIn": "Sign in | Create account",
+     "signOut": "Sign out",
+     "orders": "My orders",
+     "blog": "Blog",
+     "lang": "Language"
+   },
+   "profile": {
+     "title": "Profile update",
+     "button": "Save Profile",
+     "fname": "First Name",
+     "lname": "Last Name"
+   },
+   "filter": {
+     "title": "Filter",
+     "button": "Apply Filters"
+   },
+   "checkout": {
+     "wait": {
+       "title": "Please Wait....."
+     }
+   },
+   "product": {
+     "title": "Profile update",
+     "details": "Product Details",
+     "share": "Share",
+     "addToCart": "Add to cart",
+     "updateCart": "Update cart",
+     "outOfStockTitle": "Out of Stock",
+     "outOfStockDescription": "This product is currently out of stock",
+     "empty": {
+       "title": "No Products",
+       "description": "There are no products for selected choices"
+     },
+ 
+     "reviews": {
+       "title": "Reviews",
+       "numberOfReview": "@number reviews",
+       "rating": "@rating OUT OF 5",
+       "form": {
+         "title": "Write A Review",
+         "button": "Submit"
+       },
+       "empty": {
+         "title": "No reviwes yet"
+       }
+     }
+   }
+ }
+ 

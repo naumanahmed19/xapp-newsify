@@ -1,0 +1,14 @@
+[
+    {
+      "title": "Main Screen",
+      "screenId": "main",
+      "action": "select",
+      "index": 0
+    },
+    {
+      "title": "Onboarding Screen",
+      "screenId": "onboarding",
+      "action": "select",
+      "index": 2
+    }
+  ]

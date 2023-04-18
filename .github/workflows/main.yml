@@ -1,0 +1,74 @@
+name: Build
+
+on:
+  push:
+    branches: [ master ]
+
+env:
+  DIR: xapp-newsify
+  FLUTTER_PROJECT_REPO: https://${{ secrets.TOKEN }}@github.com/naumanahmed19/mybrand-flutter.git
+  FLUTTER_PROJECT_FOLDER: mybrand-flutter
+  FLUTTER_VERSION: 3.3.8
+
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+
+    - name: Create plugin build version
+      run: npm install && npm run build # The build command of your project
+      
+      
+      
+    
+    #Create folder && copy files and folders and create zip, and copy zip to folder
+    - run: mkdir $DIR && cp -R build inc assets data *.php readme.txt $DIR
+    - run: ls $DIR    
+    
+    # install flutter
+    - uses: actions/setup-java@v1
+      with:
+        java-version: '12.x'
+    - uses: subosito/flutter-action@v2.8.0
+
+    - name: Clone flutter project
+      run: |
+        mkdir app && cd app && git clone $FLUTTER_PROJECT_REPO .
+        flutter clean && flutter pub get && flutter build web
+        ls build
+    
+    - name: Copy web flutter project
+      run: |
+        ls
+        cp -R app/build/web $DIR
+
+ 
+    #Create zip, and copy zip to folder
+    - run: zip -r $DIR.zip $DIR && cp $DIR.zip $DIR
+    - run: ls $DIR
+
+    - name: Push
+      uses: s0/git-publish-subdir-action@v2.6.0
+      env:
+        REPO: self
+        BRANCH: build # The branch name where you want to push the assets
+        FOLDER: $DIR # The directory where your assets are generated
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # GitHub will automatically add this - you don't need to bother getting a token
+        MESSAGE: "Build: ({sha}) {msg}" # The commit message
+  
+    #Remove zip
+    - run: rm $DIR/$DIR.zip 
+
+   # Upload TF Version
+    - name: Upload to server
+      uses: sebastianpopp/ftp-action@releases/v2
+      with:
+        host: ${{ secrets.HOST }}
+        user: ${{ secrets.USERNAME }}
+        password: ${{ secrets.PASSWORD }}
+        localDir: $DIR
+        remoteDir: "/wp-content/plugins/$DIR"
